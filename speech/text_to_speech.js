@@ -6,7 +6,8 @@ const fs = require('fs');
 const util = require('util');
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
-async function quickStart() {
+
+async function writeAudioTextToSpeech() {
     // The text to synthesize
     const text = 'hello, world!';
 
@@ -26,4 +27,4 @@ async function quickStart() {
     await writeFile('output.mp3', response.audioContent, 'binary');
     console.log('Audio content written to file: output.mp3');
 }
-quickStart();
+writeAudioTextToSpeech();
