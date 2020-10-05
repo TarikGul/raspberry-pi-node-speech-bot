@@ -12,7 +12,7 @@ const weatherData = async (key) => {
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
     const cityId = 1689969; // => San Francisco
-    const url = weatherURL(key, cityId)
+    const url = weatherURL(key, cityId);
     // await the result if there is an error then console it
     let res = await axios.get(url).catch(err => {
         console.log(err);

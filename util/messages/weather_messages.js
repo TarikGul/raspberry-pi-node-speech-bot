@@ -1,20 +1,23 @@
-modules.exports = {
+module.exports = {
     /**
      * Default weather greeting
-     * @param {string} => name
+     * @param {string} => name => first_name
      * @param {string} => temp
      * @param {string} => city 
      */
     weatherGreeting: (name, weather, city) => {
-        return `Hello ${name}. The weather in ${city} today is ${weather}`;
+        if (weather === 'Clouds') {
+            weather = 'cloudy';
+        };
+        return `Hello ${name}. The weather in ${city} today is ${weather}.`;
     },
 
     /**
      * Default Temperature Reading
      * @param {integer} => temp
      */
-    tempReading: (temp) => {
-        return `Looks like the current temperature is ${temp} Degrees.`;
+    tempReading: (temp, feelsLike) => {
+        return `Looks like the current temperature is ${temp} degrees, but it feels like ${feelsLike}.`;
     },
 
     /**
