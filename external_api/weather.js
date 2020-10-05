@@ -24,10 +24,3 @@ const weatherData = async (key) => {
 module.exports = {
     weatherData
 };
-/**
- * 
- * I should probably abstract construct message out of here 
- */
-
-
-
