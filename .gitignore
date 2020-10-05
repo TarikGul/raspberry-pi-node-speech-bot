@@ -1,0 +1,7 @@
+.env
+
+node_modules/
+
+google-speech.json
+
+city.list.json
