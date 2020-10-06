@@ -9,12 +9,20 @@ weather information per day.
 
 Note if you want to run or test this out yourself you must get a weathermap key;
 
-We are using text to speech, I want to first make it tell me the weather first thing when I wake up,
-and then I want it to add sensors to it, so the first time it sees me move in the day it will autmatically 
-tell me my first weather response of the day. 
+### So whats the goal here
+
+First we want to use google-clouds text to speech to capture and tell me the weather ever morning. To start off we'll do specific times of the day. 
+
+Second, after we have a basic version working, I would like to attach a sensor to the kit, and only tell me the weather when I wake up. Cache the results, and wait until around the afternoon to tell me next.
+
+The overall goal is to learn and architect myself what a good bot would be, and how I would want to configure something like this when it comes to farming my own data and applying to deep learning to it. 
+
+For now, I need to get the rest of the hardware in the mail, but I have the raspberry pi up and running with RaspbianOS, and will write out the program in the next 3 days so I can just solder and start testing some basic things with the cool little speaks Ill be getting. 
 
 [X] Build external weather api call
-
+[X] Initiate a message Library
+    [] Build a deeper messaging library
+    [] Caching and storing mechanism that will decide based off recent results
 [] Get all speaker equipment [Link](https://www.adafruit.com/product/3006)
     [] Ordered
         [] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit
