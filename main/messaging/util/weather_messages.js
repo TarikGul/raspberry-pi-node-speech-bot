@@ -1,9 +1,9 @@
 module.exports = {
     /**
      * Default weather greeting
-     * @param {string} => name => first_name
-     * @param {string} => temp
-     * @param {string} => city 
+     * @param {string} name => first_name
+     * @param {string} temp
+     * @param {string} city 
      */
     weatherGreeting: (name, weather, city) => {
         if (weather === 'Clouds') {
@@ -14,7 +14,7 @@ module.exports = {
 
     /**
      * Default Temperature Reading
-     * @param {integer} => temp
+     * @param {integer} temp
      */
     tempReading: (temp, feelsLike) => {
         return `Looks like the current temperature is ${temp} degrees, but it feels like ${feelsLike}.`;
@@ -23,11 +23,13 @@ module.exports = {
     /**
      * This will give clothing advice based on temperature
      * Temp will be something like Hot, cold, perfect
-     * @param {integer} => tempRating
+     * @param {integer} tempRating
      * The tempRating will be from 0 - 10 0 being the coldes 10 being really hot 
      */
     clothingAdvice: (tempRating) => {
         switch(tempRating) {
+            case -1:
+                return 'Something went wrong...'
             case 0: //  -50 through -10 degrees
                 return 'When its this cold you should probably stay inside. Whale blubber might be suitable for today.';
             case 1: // -9 through 5 degrees 
@@ -54,5 +56,4 @@ module.exports = {
                 return 'Malfunctioning...';
         }
     }
-
 }
