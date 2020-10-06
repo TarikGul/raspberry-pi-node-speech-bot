@@ -4,4 +4,6 @@ node_modules/
 
 google-speech.json
 
+config/
+
 city.list.json
