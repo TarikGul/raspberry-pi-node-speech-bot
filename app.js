@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-require('dotenv').config();
+const env = require('./config/enviornments');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = env.PORT || 5000;
 
 app.use(cors());
 app.use(logger('dev'));
