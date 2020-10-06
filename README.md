@@ -11,7 +11,7 @@ Second, Today I am deciding how I want to structure this bot, and if I want to d
 [] Add Docker<br/>
 [] Draw out Diagram on what Data I want to track and how I am going to store it<br/>
 [] Read about processing microphone speech into mp3.<br/>
-[] In addition to the above, what speech to text tech I want to us (rev, google, watson);<br/>
+[X] In addition to the above, what speech to text tech I want to us (rev, google, watson)(Google cloud is the winner)<br/>
 [] Also do I want to use SSML as my speech format so I can make it more realistic<br/>
 
 -- all valid things to get done this week along with everything else. 
