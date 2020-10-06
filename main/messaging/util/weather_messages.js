@@ -27,6 +27,7 @@ module.exports = {
      * The tempRating will be from 0 - 10 0 being the coldes 10 being really hot 
      */
     clothingAdvice: (tempRating) => {
+        // console.log(parseInt(tempRating))
         switch(tempRating) {
             case -1:
                 return 'Something went wrong...'
