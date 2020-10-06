@@ -19,15 +19,15 @@ The overall goal is to learn and architect myself what a good bot would be, and 
 
 For now, I need to get the rest of the hardware in the mail, but I have the raspberry pi up and running with RaspbianOS, and will write out the program in the next 3 days so I can just solder and start testing some basic things with the cool little speaks Ill be getting. 
 
-[X] Build external weather api call
-[X] Initiate a message Library
-    [] Build a deeper messaging library
-    [] Caching and storing mechanism that will decide based off recent results
-[] Get all speaker equipment [Link](https://www.adafruit.com/product/3006)
-    [] Ordered
-        [] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit
-        [] soldering kit
-        [] jumper cables
+[X] Build external weather api call<br/>
+[X] Initiate a message Library<br/>
+    [] Build a deeper messaging library<br/>
+    [] Caching and storing mechanism that will decide based off recent results<br/>
+[] Get all speaker equipment [Link](https://www.adafruit.com/product/3006)<br/>
+    [] Ordered<br/>
+        [] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit<br/>
+        [] soldering kit<br/>
+        [] jumper cables<br/>
 
 - I have ideas for this, but not totally sure yet what or how i want to implement them
 - More on this once I finish the actual weather BOT
