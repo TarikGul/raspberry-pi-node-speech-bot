@@ -1,5 +1,4 @@
 const axios = require('axios');
-const messages = require('../util/messages/weather_messages');
 
 require('dotenv').config({ path: '../.env' });
 
@@ -11,7 +10,7 @@ const weatherData = async (key) => {
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-    const cityId = 1689969; // => San Francisco
+    const cityId = 1689969; // => San Francisco ID with openweatherAPI
     const url = weatherURL(key, cityId);
     // await the result if there is an error then console it
     let res = await axios.get(url).catch(err => {
