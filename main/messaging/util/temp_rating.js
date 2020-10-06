@@ -6,6 +6,8 @@
  */
 
 module.exports = (temp) => {
+    // Min => min temperature
+    // Max => max temperature
     const ratings = {
         0:  { min: -50, max: -10 },
         1:  { min:  -9, max:   5 },
