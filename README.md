@@ -51,7 +51,7 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 ----[] Build a deeper messaging library<br/>
 ----[X] Caching and storing mechanism that will decide based off recent results<br/>
 --------[] Need to set proper TTL results for the weather cache.
-[] Get all speaker equipment [Link](https://www.adafruit.com/product/3006<br> 
+[] Get all speaker equipment [Link](https://www.adafruit.com/product/3006)<br> 
 ----[X] Ordered<br/>
 --------[] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit<br/>
 --------[] soldering kit<br/>
@@ -60,6 +60,11 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 
 - I have ideas for this, but not totally sure yet what or how i want to implement them
 - More on this once I finish the actual weather BOT
+
+## PART 1.5 - Create a developer CLI that comes up at Boot. 
+
+[X] Setup Boot CLI with Weather Bot, and Greeting Bot.
+
 
 ## PART 2 - Node Server, connect to device on my phone in order to change settings and whatnot. 
 
