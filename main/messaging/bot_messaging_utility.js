@@ -2,7 +2,8 @@ const env = require('../../config/enviornments');
 
 class BotMessagingUtility {
     constructor() {
-        this.userName = env.USER_NAME;
+        this._userName = env.USER_NAME;
+        this._weatherKey = env.WEATHER_KEY;
     }
 
     _init() {

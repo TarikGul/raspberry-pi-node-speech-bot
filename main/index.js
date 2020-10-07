@@ -9,28 +9,20 @@ const key = env.WEATHER_KEY;
 
 /**
  * @TODO 
- *  [] 
+ *  [] Change the way I call the bots, as in i have a process waiting for a response, 
+ *     once I get that response then choose which bot i need to use accordingly. 
  */
 
-const weatherBot = async () => {
-    // I should cache data to minimize calls to API. 
-    // Example, what if I ask what the weather is, and I ask again because I 
-    // Use caching with child proccesses. 
-    await weatherData(key)
-        .then((data) => {
-            const bot = new WeatherBot(data);
-            const msg = bot.constructCurrentWeatherMessage()
-            // writeAudioTextToSpeech(msg);
-            console.log('this is the message', msg)
-        })
-        .catch((err) => {
-            console.log(err)
-        });
+const weatherBot = async () => { 
+    const cityId = 5391959;
+    const bot = new WeatherBot(cityId);
+    const msg = await bot.constructCurrentWeatherMessage()
+    // writeAudioTextToSpeech(msg);
+    console.log('this is the message', msg)
 }
 
 // Make a request to the API
 // The return value will be a string that will be echoed
 if (require.main === module) {
-
     weatherBot()
 }
