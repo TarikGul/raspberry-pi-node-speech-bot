@@ -8,14 +8,21 @@ class Cache {
             useClones: false 
         });
     }
+    /**
+     * Setter
+     * @param {string} keyName 
+     * @param {object} obj 
+     */
 
-    // Write a setter
-    set() {
-
+    set(keyName, obj) {
+        this.cache.set(keyName, obj);
     }
-    // Write a getter
-    get() {
-
+    /**
+     * 
+     * @param {string} keyName 
+     */
+    get(keyName) {
+        this.cache.get(keyName)
     }
 }
 
