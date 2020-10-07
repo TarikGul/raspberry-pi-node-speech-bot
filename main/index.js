@@ -1,6 +1,6 @@
 // This is basically the controller for the raspberry pi
 const { weatherData } = require('./external_api/weather');
-const { constructWeatherMessage, WeatherBot,  } = require('./messaging/weather_messaging');
+const WeatherBot = require('./messaging/weather_messaging');
 const writeAudioTextToSpeech = require('../speech/text_to_speech');
 
 const env = require('../config/enviornments');
@@ -16,19 +16,16 @@ const weatherBot = async () => {
     // I should cache data to minimize calls to API. 
     // Example, what if I ask what the weather is, and I ask again because I 
     // Use caching with child proccesses. 
-    let msg;
     await weatherData(key)
         .then((data) => {
-            msg = constructWeatherMessage(data);
+            const bot = new WeatherBot(data);
+            const msg = bot.constructCurrentWeatherMessage()
             // writeAudioTextToSpeech(msg);
-            console.log(msg)
+            console.log('this is the message', msg)
         })
         .catch((err) => {
-            console.log(err.message)
+            console.log(err)
         });
-
-    // const bot = new WeatherBot(result);
-    // bot.constructCurrentWeatherMessage()
 }
 
 // Make a request to the API
