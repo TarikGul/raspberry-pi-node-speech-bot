@@ -49,7 +49,8 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 [X] Build external weather api call<br/>
 [X] Initiate a message Library<br/>
 ----[] Build a deeper messaging library<br/>
-----[] Caching and storing mechanism that will decide based off recent results<br/>
+----[X] Caching and storing mechanism that will decide based off recent results<br/>
+--------[] Need to set proper TTL results for the weather cache.
 [] Get all speaker equipment [Link](https://www.adafruit.com/product/3006<br> 
 ----[X] Ordered<br/>
 --------[] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit<br/>
