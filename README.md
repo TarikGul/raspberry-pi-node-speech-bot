@@ -8,6 +8,8 @@ Second, Today I am deciding how I want to structure this bot, and if I want to d
 
 ## General `TODO`
 
+[X] Setup the Database for the Raspberry pi<br/>
+[X] Connect Node application to DB<br/>
 [] Add Docker<br/>
 [] Draw out Diagram on what Data I want to track and how I am going to store it<br/>
 [] Read about processing microphone speech into mp3.<br/>
