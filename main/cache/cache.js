@@ -1,12 +1,14 @@
-import NodeCache from 'node-cache'
+const NodeCache = require('node-cache')
 
 class Cache {
-    constructor(ttlSeconds=100) {
+    constructor(ttlSeconds, options) {
         this.cache = new NodeCache({ 
             stdTTL: ttlSeconds, 
             checkperiod: ttlSeconds * 0.2, 
             useClones: false 
         });
+        this.ttlSeconds = ttlSeconds 
+        this.options = {...options}
     }
     /**
      * Setter
@@ -15,14 +17,28 @@ class Cache {
      */
 
     set(keyName, obj) {
-        this.cache.set(keyName, obj);
+        const value = this.cache.get(keyName);
+
+        if (value === undefined) {
+            this.cache.set(keyName, obj);
+        } else {
+            // Reset the keyname, and reset the timer. 
+            this.cache.del(keyName);
+            this.cache.set(keyName, obj);
+            this.cache.ttl = this.ttlSeconds;
+        }
     }
     /**
      * 
      * @param {string} keyName 
      */
     get(keyName) {
-        this.cache.get(keyName)
+        const value = this.cache.get(keyName);
+
+        if(value !== undefined) {
+            return value;
+        }
+        return false
     }
 }
 
