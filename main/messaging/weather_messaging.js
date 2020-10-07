@@ -1,33 +1,63 @@
 const tempRating = require('./util/temp_rating');
-
-const env = require('../../config/enviornments');
+const { weatherData } = require('../external_api/weather');
 
 const BotMessaging = require('./bot_messaging');
+const Cache = require('../cache/cache');
 
 class WeatherBot extends BotMessaging {
 
-    constructor(data) {
+    constructor(cityId) {
         super()
-        this.data = {...data}
         this.time = new Date().getHours();
+        // Need to change the cache time to live
+        this.cache = new Cache(100);
+        this.cityId = cityId;
     }
 
-    constructCurrentWeatherMessage() {
-        const { name, main, weather } = this.data;
+    // The weather key is passed down from BotMessagingUtility
+    async _callWeatherAPI (key=this._weatherKey) {
+        await weatherData(key)
+            .then(data => {
+                this.cache.set(`weather-data-${this.cityId}`,data)
+            })
+    }
+
+    async constructCurrentWeatherMessage() {
+        const cacheKey = `weather-data-${this.cityId}`;
+        const value = this.cache.get(cacheKey);
+
+        if(!value) {
+            await this._callWeatherAPI()
+        }
+
+        let data = value || this.cache.get(cacheKey);
+
+        const { name, main, weather } = data;
         const rating = tempRating(main.temp);
 
-        // We inherit this.userName from the hierarchy class structure
-        const greeting        = this.weatherGreeting(this.userName, weather[0].main, name);
+        // We inherit this._userName from the hierarchy class structure
+        const greeting        = this.weatherGreeting(this._userName, weather[0].main, name);
         const tellTemperature = this.tempReading(main.temp, main.feels_like);
         const clothingAdvice  = this.clothingAdvice(rating);  
-        // console.log('this is the username', this.userName)
 
         return [greeting, tellTemperature, clothingAdvice].join(' ');
     }
 
-    constructDailyWeatherMessage() {
-
+    /**
+     * 
+     * @param {integer} cityId 
+     */
+    resetCityId(cityId) {
+        this.cityId = cityId;
     }
+
+    /**
+     * 
+     * Belowe are all the messages that the weather Bot can say, if it ever gets
+     * too large we can move it out of this class
+     */
+
+
     /**
      * Default weather greeting
      * @param {string} name => first_name
