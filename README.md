@@ -71,3 +71,47 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 [X] Setup Node Server<br/>
 ----[] Give myself a good reason why I need this right now, or i delete it.<br/>
 
+## PART 3 - Keyword ranking model
+
+[] Write AhoCorasick Algorithm for word matchng in large text fields
+
+``` javascript
+// Question words can be used to rank a question
+questionWords = [
+    'what',
+    'when',
+    'why',
+    'which',
+    'who',
+    'how',
+    'whose',
+    'whom'
+]
+
+// More to add as more bots come up
+botWords = [
+    'weather'
+]
+
+weatherWords = [
+    'right',
+    'now',
+    'today',
+    'sunny',
+    'cloudy',
+    'weather',
+    'temperature',
+    'tomorrow',
+    'forecast',
+    'projected',
+]
+
+
+```
+etc.
+
+## Part 4 - Audio Processing
+
+All audio processing with be done in a virtual enviornment in python. 
+I still need to figure out how I am going to connect to the audio driver. I believe
+the formating for the OS is just `audio`
