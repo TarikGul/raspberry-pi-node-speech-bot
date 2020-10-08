@@ -22,6 +22,7 @@
     "inquirer": "^7.3.3",
     "kelvin-to-fahrenheit": "^1.1.0",
     "knex": "^0.21.6",
+    "mic": "^2.1.2",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",
     "node-schedule": "^1.3.2"
