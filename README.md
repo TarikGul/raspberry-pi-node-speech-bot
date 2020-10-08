@@ -121,3 +121,8 @@ MacOS Catalina blocks permission to the mic for the terminal. This command will 
 In order to get sox working in terminal to get permissions
 run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
     -> $rec new-file.wav
+
+
+## Part 5 - On Boot Create User
+
+On Boot we need to create a user. A User wont be a traditional 
