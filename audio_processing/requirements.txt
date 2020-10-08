@@ -1,0 +1,3 @@
+######### Without Specified Versions ###########
+pyaudio
+SpeechRecognition
