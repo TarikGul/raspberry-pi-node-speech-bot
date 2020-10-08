@@ -10,5 +10,18 @@ module.exports = {
 
         // Still thinking how i should store and update the users name after they changed it
         // Well be back to this one later
+    },
+    /**
+     * Open terminal to get system priviledges
+     */
+    openTerminalThroughSytem:() => {
+        exec('open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal');
+    },
+    /**
+     * Record audio and save file
+     * NOTE: This is if I use sox, if I use ALAS in linux, it must be arecord.
+     */
+    recordAudio: () => {
+        exec('rec new-file.wav');
     }
 }
