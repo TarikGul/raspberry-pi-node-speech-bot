@@ -113,5 +113,11 @@ etc.
 ## Part 4 - Audio Processing
 
 All audio processing with be done in a virtual enviornment in python. 
-I still need to figure out how I am going to connect to the audio driver. I believe
-the formating for the OS is just `audio`
+
+I finally connected to the audio driver on my mac for testing, but in linux it will be easy to connect.
+MacOS Catalina blocks permission to the mic for the terminal. This command will help you get around that.
+
+
+In order to get sox working in terminal to get permissions
+run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+    -> $rec new-file.wav
