@@ -2,6 +2,10 @@ from __future__ import print_function
 import os
 from pocketsphinx import Pocketsphinx, get_model_path, get_data_path
 
+# This file will take in a raw formatted audio
+# Using pocket Sphinx we are able to get the probably of probable words
+# Then it will display all of the details about the raw -> audio
+
 model_path = get_model_path()
 data_path = get_data_path()
 
