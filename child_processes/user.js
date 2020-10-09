@@ -21,7 +21,13 @@ module.exports = {
      * Record audio and save file
      * NOTE: This is if I use sox, if I use ALAS in linux, it must be arecord.
      */
-    recordAudio: () => {
-        exec('rec new-file.wav');
+    recordAudio: (fileName) => {
+        exec(`rec ${fileName}`);
+    },
+    /**
+     * Play Audio from terminal
+     */
+    playAudio: (fileName) => {
+        exec(`afplay ${fileName}`);
     }
 }
