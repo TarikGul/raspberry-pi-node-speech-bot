@@ -1,3 +1,4 @@
 ######### Without Specified Versions ###########
 pyaudio
 SpeechRecognition
+pocketsphinx
