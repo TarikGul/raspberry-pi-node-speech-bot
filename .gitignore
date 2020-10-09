@@ -1,9 +1,14 @@
+# Default Ignores
+*.DS_Store
 .env
-
 node_modules/
 
-google-speech.json
-
+# Private support files for local development
+# google-speech.json => can get at google txt-to-speech api docs
+# city.list.json => can download off of open-weather-api
+google-speech.json 
 city.list.json
 
+# Python directories or files to Ignore
 audio_processing/env
+audio_processing/__pycache__
