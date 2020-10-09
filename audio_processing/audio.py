@@ -10,6 +10,8 @@ WAVE_OUTPUT_FILENAME = "recordedFile.wav"
 device_index = 2
 audio = pyaudio.PyAudio()
 
+# This is if we want to list all the devices and see which are available.
+# Anything will a max channel input greater than 0 will be a microphone
 print("----------------------record device list---------------------")
 info = audio.get_host_api_info_by_index(0)
 numdevices = info.get('deviceCount')
