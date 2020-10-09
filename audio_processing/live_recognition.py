@@ -10,3 +10,5 @@ with mic as source:
     
 print(r.recognize_sphinx(audio, language="en-US", show_all=False))
 
+# To call speech_recognition from Command Line 
+# $python -m speech_recognition
