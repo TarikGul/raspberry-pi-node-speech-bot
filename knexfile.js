@@ -13,7 +13,7 @@ module.exports = {
     connection: {
       database: env.DB_NAME,
       user:     env.DB_USER_NAME,
-      password: env.DB_USER_NAME,
+      password: env.DB_PASSWORD,
     },
     pool: {
       min: 2,
