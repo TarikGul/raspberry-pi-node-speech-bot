@@ -2,3 +2,4 @@
 pyaudio
 SpeechRecognition
 pocketsphinx
+Naked.toolshed.shell
