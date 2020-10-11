@@ -24,8 +24,8 @@ def recognize_worker():
             print('sleeping for 5 seconds to wait for response');
             time.sleep(5)
             continue
-            # break  # stop processing if the main thread is done
-        # received audio data, now we'll recognize it using Google Speech Recognition
+            # break can stop processing if the main thread is done
+        # received audio data, now we'll recognize it using CMUSphinx Recognition
         try:
             text = r.recognize_sphinx(audio)
             print("Google Speech Recognition thinks you said " + text)
