@@ -61,10 +61,11 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 --------[] Need to set proper TTL results for the weather cache.
 [] Get all speaker equipment [Link](https://www.adafruit.com/product/3006)<br> 
 ----[X] Ordered<br/>
---------[] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit<br/>
---------[] soldering kit<br/>
---------[] jumper cables<br/>
---------[] soldering board<br/>
+--------[X] Adafruit I2S 3W Class D Amplifier Breakout - MAX98357A Kit<br/>
+--------[X] soldering kit<br/>
+--------[X] jumper cables<br/>
+--------[X] soldering board<br/>
+--------[] 3W 4Ohm speaker set
 
 - I have ideas for this, but not totally sure yet what or how i want to implement them
 - More on this once I finish the actual weather BOT
