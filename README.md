@@ -2,19 +2,27 @@
 
 ## UPDATES
 
-First, I am considering naming this bot. So far the two names I have thought of are Merry, and Pippen. Both are characters from the Lord of the Rings, and both are excellent sidekicks. 
+I named the bot Cora
 
-Second, Today I am deciding how I want to structure this bot, and if I want to do a class Inheritance structure, or pure functional. I am leaning more so on the side of pure functional, and letting a lot of the logic be seperate from eachother and accessed on command via speech. That means I would always have to have one process running/listening such as a webhook, but instead for a driver. I need to do more research on this `TODO`!!!
+So I just got the Python Wrapper setup architected and the subthread processing the audio in parrallel running. Currently, I also have the node portion for the bot running on a sub thread as well. The main python wrapper thread will always have the sub thread running as the main thread interacts with Cora. 
+
+I need to setup the greeting bot, and the standard audio file folder, as well as the check for current User on boot. This will allow us to change user names, and keep track of the current user using the bot.
 
 ## General `TODO`
 
-[X] Setup the Database for the Raspberry pi<br/>
-[X] Connect Node application to DB<br/>
-[] Add Docker<br/>
-[] Draw out Diagram on what Data I want to track and how I am going to store it<br/>
-[] Read about processing microphone speech into mp3.<br/>
-[X] In addition to the above, what speech to text tech I want to us (rev, google, watson)(Google cloud is the winner)<br/>
-[] Also do I want to use SSML as my speech format so I can make it more realistic<br/>
+X  ==> Completed
+NO ==> Not doing it anymore/Not a priority.
+
+[X]  Setup the Database for the Raspberry pi<br/>
+[X]  Connect Node application to DB<br/>
+[NO] Add Docker<br/>
+[]   Draw out Diagram on what Data I want to track and how I am going to store it<br/>
+[X]  Read about processing microphone speech into mp3.<br/>
+[X]  In addition to the above, what speech to text tech I want to us (rev, google, watson)(Google cloud is the winner)<br/>
+[NO] Also do I want to use SSML as my speech format so I can make it more realistic<br/>
+[]   Build out aho corasick algorithm with word ranking algorithm I already built out a version of aho corasick in JS, but i need to implement it in Python<br/>
+[]   Create the standard geeting bot with a standard audio folder with cached responses.<br/>
+[]   
 
 -- all valid things to get done this week along with everything else. 
 
@@ -74,6 +82,7 @@ For now, I need to get the rest of the hardware in the mail, but I have the rasp
 ## PART 3 - Keyword ranking model
 
 [] Write AhoCorasick Algorithm for word matchng in large text fields
+[] Use python for the word matching 
 
 ``` javascript
 // Question words can be used to rank a question
@@ -110,9 +119,9 @@ weatherWords = [
 ```
 etc.
 
-## Part 4 - Audio Processing
+## Part 4 - Audio Processing MultiThreading
 
-All audio processing with be done in a virtual enviornment in python. 
+All audio processing with be done in python. 
 
 I finally connected to the audio driver on my mac for testing, but in linux it will be easy to connect.
 MacOS Catalina blocks permission to the mic for the terminal. This command will help you get around that.
@@ -126,3 +135,8 @@ run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
 ## Part 5 - On Boot Create User
 
 On Boot we need to create a user. A User wont be a traditional 
+
+## Part 6 - Using node-bot in a subthread 
+
+I basically wrote all this out already but when it comes to the architecture of things, 
+I have decided to make a the bot a subprocess of the audio processing python portion of the PI. 
