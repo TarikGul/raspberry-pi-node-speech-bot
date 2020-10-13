@@ -128,8 +128,8 @@ I finally connected to the audio driver on my mac for testing, but in linux it w
 MacOS Catalina blocks permission to the mic for the terminal. This command will help you get around that.
 
 
-In order to get sox working in terminal to get permissions
-run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+In order to get sox working in terminal to get permissions<br/>
+run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal<br/>
     -> $rec new-file.wav
 
 
