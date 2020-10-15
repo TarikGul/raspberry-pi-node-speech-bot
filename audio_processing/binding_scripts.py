@@ -1,13 +1,10 @@
 import os
-import concurrent.futures
-from multiprocessing.pool import ThreadPool
 import threading
+from multiprocessing.pool import ThreadPool
 from Naked.toolshed.shell import execute_js, muterun_js
 
-
-
 def run_cora():
-    response = execute_js('../lib/index.js')
+    response = execute_js('../lib/index.js', arguments='-b g')
     return response
 
 def stop_cora():
