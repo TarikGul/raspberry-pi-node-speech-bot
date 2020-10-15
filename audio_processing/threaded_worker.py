@@ -10,10 +10,24 @@ except ImportError:
 
 import speech_recognition as sr
 from binding_scripts import run_cora
-
+from cachetools import TTLCache
 
 r = sr.Recognizer()
 audio_queue = Queue()
+
+# Step 1:
+# Setup a cache to store when we start with a hello, and give it a 6 second TTL
+hello_cache = TTLCache(10, 6, timer=time.monotonic, getsizeof=None)
+response_cache = TTLCache(10, 10, timer=time.monotonic, getsizeof=None)
+# Step 2:
+# Do Aho Corasick Word matching. only if the first cache is a 'hello';
+
+# Step 3: 
+# Structure an algorithm to find out what kind of bot we are looking for, and the details for the bot too
+
+# Also dont forget to write a greeting bot that will run after Saying hello
+# This could be as simple as writing an audio file with my name, and giving a message back
+# But if you want to you can make a node bot for it too that will give a custom message back
 
 
 def recognize_worker():
@@ -29,11 +43,13 @@ def recognize_worker():
         try:
             text = r.recognize_sphinx(audio)
             print("Google Speech Recognition thinks you said " + text)
+
+            # This will be our decision Tree
+
             if text == 'hello':
                 print('Kora recognized your hello')
                 response = run_cora()
                 if response is True:
-                    print('Do something here')
                     audio_queue.put(None)
                     continue
 
