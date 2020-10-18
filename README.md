@@ -141,3 +141,11 @@ On Boot we need to create a user. A User wont be a traditional
 
 I basically wrote all this out already but when it comes to the architecture of things, 
 I have decided to make a the bot a subprocess of the audio processing python portion of the PI. 
+
+## Requirements
+
+`brew install swig`<br/>
+`brew install wheel`<br/>
+`brew install setuptools`<br/>
+
+Python venv
