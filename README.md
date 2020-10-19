@@ -1,9 +1,9 @@
 <h1 style="text-align: center;">My Raspberry PI project. <br/> Interactive Speech Recognition Bot: Cora</h1>
 
 ## What does Cora do?
-    Cora on boot will start listening in the background for keyword/keyword-phrase `hello` and `hello cora`. Coras main thread is a python wrapper, that has a sub-thread that runs all the audio-processing. The actual bot that writes the responses to the user is written in node. The audio processing subthread will trigger the main thread to call upon the node bot when necessary. The ranking algorithm so far is a aho-corasick word matching algorithm. As more complicated searching is developed for more real-time and random questions more implementations will be added. So far Cora will respond to weather questions, and has a greeting bot as well. 
+Cora on boot will start listening in the background for keyword/keyword-phrase `hello` and `hello cora`. Coras main thread is a python wrapper, that has a sub-thread that runs all the audio-processing. The actual bot that writes the responses to the user is written in node. The audio processing subthread will trigger the main thread to call upon the node bot when necessary. The ranking algorithm so far is a aho-corasick word matching algorithm. As more complicated searching is developed for more real-time and random questions more implementations will be added. So far Cora will respond to weather questions, and has a greeting bot as well. 
 
-    NOTE: This bot can run locally on your machine, and does not require a raspberry pi. 
+NOTE: This bot can run locally on your machine, and does not require a raspberry pi. 
 
 ## Hardware Requirements
 
