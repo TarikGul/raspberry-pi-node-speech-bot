@@ -24,9 +24,6 @@ audio_queue = Queue()
 # Step 3: 
 # Structure an algorithm to find out what kind of bot we are looking for, and the details for the bot too
 
-# Also dont forget to write a greeting bot that will run after Saying hello
-# This could be as simple as writing an audio file with my name, and giving a message back
-# But if you want to you can make a node bot for it too that will give a custom message back
 
 # This runs in a background thread
 def recognize_worker():
@@ -117,27 +114,30 @@ def recognize_worker():
 
     return False
 
+def live_background_recognition():
+    # start a new thread to recognize audio, while this thread focuses on listening
+    recognize_thread = Thread(target=recognize_worker)
+    recognize_thread.daemon = True
+    recognize_thread.start()
 
-# start a new thread to recognize audio, while this thread focuses on listening
-recognize_thread = Thread(target=recognize_worker)
-recognize_thread.daemon = True
-recognize_thread.start()
+    with sr.Microphone() as source:
+        # Only need to adjust the mic once
+        r.adjust_for_ambient_noise(source)
 
-with sr.Microphone() as source:
-    # Only need to adjust the mic once
-    r.adjust_for_ambient_noise(source)
+        try:
+            print('[MAIN_THREAD]: -------')
+            while True:  # repeatedly listen for phrases and put the resulting audio on the audio processing job queue
+                print('[THREAD] ', recognize_thread)
+                # stop_listening = r.listen(source)
+                audio_queue.put(r.listen(source))
+                # audio_queue.put(stop_listening)
+                print('[AUDIO_QUEUE] audio queue', audio_queue)
+        except KeyboardInterrupt:  # allow Ctrl + C to shut down the program
+            pass
 
-    try:
-        print('[MAIN_THREAD]: -------')
-        while True:  # repeatedly listen for phrases and put the resulting audio on the audio processing job queue
-            print('[THREAD] ', recognize_thread)
-            # stop_listening = r.listen(source)
-            audio_queue.put(r.listen(source))
-            # audio_queue.put(stop_listening)
-            print('[AUDIO_QUEUE] audio queue', audio_queue)
-    except KeyboardInterrupt:  # allow Ctrl + C to shut down the program
-        pass
+    audio_queue.join()  # block until all current audio processing jobs are done
+    audio_queue.put(None)  # tell the recognize_thread to stop
+    recognize_thread.join()  # wait for the recognize_thread to actually stop
 
-audio_queue.join()  # block until all current audio processing jobs are done
-audio_queue.put(None)  # tell the recognize_thread to stop
-recognize_thread.join()  # wait for the recognize_thread to actually stop
+if __name__ == "__main__":
+    live_background_recognition()
