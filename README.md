@@ -175,7 +175,7 @@ run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
 
 ## Part 5 - On Boot Create User
 
-On Boot we need to create a user. A User wont be a traditional 
+On Boot we need to create a user. A User wont be a traditional.
 
 ## Part 6 - Using node-bot in a subthread 
 
