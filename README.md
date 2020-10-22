@@ -173,7 +173,7 @@ run -> $open /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
     -> $rec new-file.wav
 
 
-## Part 5 - On Boot Create User
+## Part 5 - On Boot Create User.
 
 On Boot we need to create a user. A User wont be a traditional.
 
