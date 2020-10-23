@@ -3,10 +3,8 @@
 # NOTE: this example requires PyAudio because it uses the Microphone class
 import time
 from threading import Thread
-try:
-    from queue import Queue  # Python 3 import
-except ImportError:
-    from Queue import Queue  # Python 2 import
+from queue import Queue
+
 
 import speech_recognition as sr
 from binding_scripts import run_cora, run_greeting_audio

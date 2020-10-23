@@ -1,3 +1,4 @@
+from queue import Queue
 """
 Section: WORD RANKING
 This word ranking algorithm will return text. It will be a keyword denoting which bot to use
@@ -5,6 +6,10 @@ This word ranking algorithm will return text. It will be a keyword denoting whic
 We first determine if there is anything in the hello_cache and if the text is equal to hello or oh
 
 """
+
+DEFAULT_RESPONSE = 'DEFAULT_RESPONSE' # Couldnt understand the question.
+HELLO_RESPONSE = 'HELLO_RESPONSE'
+CURRENT_WEATHER_RESPONSE = 'CURRENT_WEATHER_RESPONSE'
 
 def word_ranking(hello_cache: object, text: str) -> int:
 
@@ -23,7 +28,21 @@ def word_ranking(hello_cache: object, text: str) -> int:
         'whom'
     ]
 
+    weather_words = [
+        'weather',
+    ]
 
+    search = AhoCorasick(question_words, text)
+    result = search.run()
+
+    # The phrase that was said is not a question
+    if len(result) == 0:
+        return DEFAULT_RESPONSE
+    else:
+        is_weather_question = 'weather' in text.split()
+
+        if is_weather_question is True:
+            return CURRENT_WEATHER_RESPONSE
     
 
 class AhoCorasick:
