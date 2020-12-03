@@ -1,4 +1,4 @@
-from live_background_recognition import live_background_recognition
+from live_background_recognition import threaded_worker
 from binding_scripts import run_cora, setupVirtualEnv
 
 def boot_recognition():

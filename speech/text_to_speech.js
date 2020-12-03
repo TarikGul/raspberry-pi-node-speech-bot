@@ -8,7 +8,7 @@ const util = require('util');
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-const writeAudioTextToSpeech = async (text) => {
+const writeAudioTextToSpeech = async (text, fileTypeName) => {
     // Construct the request
     const request = {
         input: { text: text },
@@ -22,7 +22,7 @@ const writeAudioTextToSpeech = async (text) => {
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
     const writeFile = util.promisify(fs.writeFile);
-    await writeFile(path.join(__dirname, 'output.mp3'), response.audioContent, 'binary');
+    await writeFile(path.join(__dirname, `../audio_files/${fileTypeName}.mp3`), response.audioContent, 'binary');
     console.log('Audio content written to file: output.mp3');
 }
 

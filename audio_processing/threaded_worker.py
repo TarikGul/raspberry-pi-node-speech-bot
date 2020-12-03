@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
-# NOTE: this example requires PyAudio because it uses the Microphone class
 import time
 from threading import Thread
 from queue import Queue
-
 
 import speech_recognition as sr
 from binding_scripts import run_cora, run_greeting_audio
@@ -12,16 +10,6 @@ from cachetools import TTLCache
 
 r = sr.Recognizer()
 audio_queue = Queue()
-
-# Step 1:
-# Setup a cache to store when we start with a hello, and give it a 6 second TTL
-
-# Step 2:
-# Do Aho Corasick Word matching. only if the first cache is a 'hello';
-
-# Step 3: 
-# Structure an algorithm to find out what kind of bot we are looking for, and the details for the bot too
-
 
 # This runs in a background thread
 def recognize_worker():
