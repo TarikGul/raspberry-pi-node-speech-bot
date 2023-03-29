@@ -10,7 +10,6 @@ const writeAudioTextToSpeech = async (text, fileTypeName) => {
         voice: { languageCode: 'en-GB', ssmlGender: 'FEMALE', voiceName: 'en-GB-Wavenet-C' },
         audioConfig: { audioEncoding: 'MP3' },
     };
-
     const [response] = await client.synthesizeSpeech(request);
     const writeFile = util.promisify(fs.writeFile);
     await writeFile(path.join(__dirname, `../audio_files/${fileTypeName}.mp3`), response.audioContent, 'binary');
